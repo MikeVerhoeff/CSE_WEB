@@ -1,0 +1,123 @@
+<!--style>
+	:root {
+	 --grid-size:70px;
+	 --grid-spacing:0.95;
+	 --border-color:black;
+	 --border-size:2px;
+	 --tile-color:white;
+	 --tile-shrink:0.7;
+	 
+	 --small-tile-grid-size: calc(var(--grid-size) * var(--tile-shrink));
+	}
+	* {
+		box-sizing: border-box;
+	}
+	th {
+		width:var(--grid-size);
+		height:var(--grid-size);
+	}
+	
+	.p1 { --tile-color:red; }
+	.p2 { --tile-color:blue; }
+	.p3 { --tile-color:green; }
+	.p4 { --tile-color:yellow; }
+	
+	.r::before {
+		position: absolute;
+		content:"";
+		--size:calc( var(--grid-size) - 2 * var(--border-size) );
+		width: var(--size); height:var(--size);
+		border:var(--border-size) solid var(--border-color);
+		border-radius:50%;
+		background-color:var(--tile-color);
+		margin: calc( var(--grid-size) / -2);
+	}
+	
+	.f {
+	
+	}
+	.f::before {
+		position: absolute;
+		content:"";
+		--size:calc(var(--grid-size) * var(--tile-shrink) );
+		width:var(--size);
+		height:var(--size);
+		--ofset:calc( var(--size) * -0.5 - var(--border-size));
+		margin-top:var(--ofset);
+		margin-left:var(--ofset);
+		border-radius:50%;
+		border:var(--border-size) solid var(--border-color);
+		background-color:var(--tile-color);
+	}
+	
+	.f .pawn {
+		--grid-size: var(--small-tile-grid-size);
+	}
+	
+	.pawn {
+		position:absolute;
+		margin:0px;
+	}
+	.pawn::before {
+		position: absolute;
+		content:"";
+		width:calc(var(--grid-size) / 7 * 4);
+		height:calc(var(--grid-size) / 7 * 2);
+		text-shadow:0px 0px 2px rgba(0,0,0,0.2);
+		background-color:rgba(0,0,0,0.2);
+		border-radius:50%;
+		margin-top:calc(var(--grid-size) / 7);
+		margin-left:calc(var(--grid-size) / -2 + ( var(--grid-size) / 7 * 4 *0.75 ) / 2);
+	}
+	.pawn::after {
+		position: absolute;
+		content:"\265F";
+		font-size:var(--grid-size);
+		margin-top:calc(var(--grid-size) / -1.35);
+		margin-left:calc(var(--grid-size) / -2);
+		font-weight: normal;
+	}
+	
+	.spacing_horizontal {
+	}
+	
+	.spacing_vertical {
+	
+	}
+</style-->
+<h2 id="status">Waiting for game to be created - if this stays up for long than somthing went wrong</h2>
+<table id="game_board">
+	<tr>
+		<th class="r p4" ><span class="pawn p4" id="p4_1"></span></th> <th class="r p4" ><span class="pawn p4" id="p4_2"></span></th> <th></th> <th></th> <th class="r" ></th> <th class="r" ></th> <th id="start_1" class="r p1" ></th> <th></th> <th></th> <th class="r p1" ><span class="pawn p1" id="p1_1"></span></th> <th class="r p1" ><span class="pawn p1" id="p1_2"></span></th>
+	</tr>
+	<tr>
+		<th class="r p4" ><span class="pawn p4" id="p4_3"></span></th> <th class="r p4" ><span class="pawn p4" id="p4_4"></span></th> <th></th> <th></th> <th class="r" ></th> <th class="f p1" ></th> <th class="r" ></th> <th></th> <th></th> <th class="r p1" ><span class="pawn p1" id="p1_3"></span></th> <th class="r p1" ><span class="pawn p1" id="p1_4"></span></th>
+	</tr>
+	<tr>
+		<th></th> <th></th> <th></th> <th></th> <th class="r" ></th> <th class="f p1" ></th> <th class="r" ></th> <th></th> <th></th> <th></th> <th></th>
+	</tr>
+	<tr>
+		<th></th> <th></th> <th></th> <th></th> <th class="r" ></th> <th class="f p1" ></th> <th class="r" ></th> <th></th> <th></th> <th></th> <th></th>
+	</tr>
+	<tr>
+		<th id="start_4" class="r p4" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="f p1" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th>
+	</tr>
+	<tr>
+		<th class="r" ></th> <th class="f p4" ></th> <th class="f p4" ></th> <th class="f p4" ></th> <th class="f p4" ></th> <th></th> <th class="f p2" ></th> <th class="f p2" ></th> <th class="f p2" ></th> <th class="f p2" ></th> <th class="r" ></th>
+	</tr>
+	<tr>
+		<th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="f p3" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th class="r" ></th> <th id="start_2" class="r p2" ></th>
+	</tr>
+	<tr>
+		<th></th> <th></th> <th></th> <th></th> <th class="r" ></th> <th class="f p3" ></th> <th class="r" ></th> <th></th> <th></th> <th></th> <th></th>
+	</tr>
+	<tr>
+		<th></th> <th></th> <th></th> <th></th> <th class="r" ></th> <th class="f p3" ></th> <th class="r" ></th> <th></th> <th></th> <th></th> <th></th>
+	</tr>
+	<tr>
+		<th class="r p3" ><span class="pawn p3" id="p3_1"></span></th> <th class="r p3" ><span class="pawn p3" id="p3_2"></span></th> <th></th> <th></th> <th class="r" ></th> <th class="f p3" ></th> <th class="r" ></th> <th></th> <th></th> <th class="r p2" ><span class="pawn p2" id="p2_1"></span></th> <th class="r p2" ><span class="pawn p2" id="p2_2"></span></th>
+	</tr>
+	<tr>
+		<th class="r p3" ><span class="pawn p3" id="p3_3"></span></th> <th class="r p3" ><span class="pawn p3" id="p3_4"></span></th> <th></th> <th></th> <th id="start_3" class="r p3" ></th> <th class="r" ></th> <th class="r" ></th> <th></th> <th></th> <th class="r p2" ><span class="pawn p2" id="p2_3"></span></th> <th class="r p2" ><span class="pawn p2" id="p2_4"></span></th>
+	</tr>
+</table>

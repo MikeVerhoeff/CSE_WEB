@@ -1,0 +1,132 @@
+:root {
+	--grid-size:70px;
+	--grid-spacing:0.95;
+	--border-color:black;
+	--border-size:2px;
+	--tile-color:white;
+	--tile-shrink:0.7;
+	--pawn-color:black;
+	--pawn-highlight-color:gray;
+	
+	--player-1-tile-color: red;
+	--player-1-pawn-color: darkred;
+	--player-1-pawn-highlight-color: #e6542c;
+	
+	--player-2-tile-color: blue;
+	--player-2-pawn-color: lightblue;
+	--player-2-pawn-highlight-color: #4a65e8;
+	
+	--player-3-tile-color: green;
+	--player-3-pawn-color: darkgreen;
+	--player-3-pawn-highlight-color: #37c474;
+	
+	--player-4-tile-color: yellow;
+	--player-4-pawn-color: orange;
+	--player-4-pawn-highlight-color: #dbed4e;
+	
+	--small-tile-grid-size: calc(var(--grid-size) * var(--tile-shrink));
+}
+* {
+	box-sizing: border-box;
+}
+th {
+	width:var(--grid-size);
+	height:var(--grid-size);
+}
+
+.p1 {
+	--tile-color:var(--player-1-tile-color);
+	--pawn-color:var(--player-1-pawn-color);
+	--pawn-highlight-color:var(--player-1-pawn-highlight-color);
+}
+.p2 {
+	--tile-color:var(--player-2-tile-color);
+	--pawn-color:var(--player-2-pawn-color);
+	--pawn-highlight-color:var(--player-2-pawn-highlight-color);
+}
+.p3 {
+	--tile-color:var(--player-3-tile-color);
+	--pawn-color:var(--player-3-pawn-color);
+	--pawn-highlight-color:var(--player-3-pawn-highlight-color);
+}
+.p4 {
+	--tile-color:var(--player-4-tile-color);
+	--pawn-color:var(--player-4-pawn-color);
+	--pawn-highlight-color:var(--player-4-pawn-highlight-color);
+}
+
+.r::before {
+	position: absolute;
+	content:"";
+	--size:calc( var(--grid-size) - 2 * var(--border-size) );
+	width: var(--size); height:var(--size);
+	border:var(--border-size) solid var(--border-color);
+	border-radius:50%;
+	background-color:var(--tile-color);
+	margin: calc( var(--grid-size) / -2);
+}
+
+.f {
+
+}
+.f::before {
+	position: absolute;
+	content:"";
+	--size:calc(var(--grid-size) * var(--tile-shrink) );
+	width:var(--size);
+	height:var(--size);
+	--ofset:calc( var(--size) * -0.5 - var(--border-size));
+	margin-top:var(--ofset);
+	margin-left:var(--ofset);
+	border-radius:50%;
+	border:var(--border-size) solid var(--border-color);
+	background-color:var(--tile-color);
+}
+
+.f .pawn {
+	--grid-size: var(--small-tile-grid-size);
+}
+
+.pawn {
+	position:absolute;
+	margin:0px;
+}
+.pawn::before {
+	position: absolute;
+	content:"";
+	width:calc(var(--grid-size) / 7 * 4);
+	height:calc(var(--grid-size) / 7 * 2);
+	text-shadow:0px 0px 2px rgba(0,0,0,0.2);
+	background-color:rgba(0,0,0,0.2);
+	border-radius:50%;
+	margin-top:calc(var(--grid-size) / 7);
+	margin-left:calc(var(--grid-size) / -2 + ( var(--grid-size) / 7 * 4 *0.75 ) / 2);
+}
+.pawn::after {
+	position: absolute;
+	content:"\265F\FE0E";
+	font-family: Segoe UI Symbol;
+	color:var(--pawn-color);
+	font-size:var(--grid-size);
+	margin-top:calc(var(--grid-size) / -1.35);
+	margin-left:calc(var(--grid-size) / -2);
+	font-weight: normal;
+}
+
+@keyframes highlight {
+  0% {color: var(--pawn-color);}
+  50% {color: var(--pawn-highlight-color);}
+  100% {color: var(--pawn-color);}
+}
+.pawn:hover::after {
+	animation-name:highlight;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+}
+
+.spacing_horizontal {
+}
+
+.spacing_vertical {
+
+}

@@ -1,0 +1,82 @@
+:root {
+	--side-bar-width: 300px;
+	--direct-join-height:150px;
+	--game-settings-width:500px;
+	--game-settings-height:400px;
+}
+
+html, body {
+	width:100%;
+	height:100%;
+	padding:0;
+	margin:0;
+}
+
+#game {
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+
+#overlay {
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+
+#flex_container {
+	display:flex;
+	width:100%;
+	height:100%;
+	align-items: stretch;
+}
+
+#spash_screen {
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-grow: 1;
+	height:100%;
+	background-color:red;
+	width: 100px;
+	flex-grow: 1;
+}
+
+#active_games {
+	display:flex;
+	flex-direction: column;
+	flex-grow: 1;
+	height:100%;
+	background-color:blue;
+	width: var(--side-bar-width);
+	flex-grow: 0;
+}
+
+#new_game {
+	width:200px;
+	height:100px;
+	background-color:pink;
+}
+
+#new_game_settings {
+	display:none;
+	width:var(--game-settings-width);
+	height:var(--game-settings-height);
+	background-color:orange;
+	max-height:100%;
+	overflow: auto;
+}
+
+#direct_join {
+	flex-grow: 0;
+	height:var(--direct-join-height);
+	width:100%;
+	background-color:green;
+}
+
+#game_list {
+	flex-grow: 1;
+	height:500px;
+	width:100%;
+	background-color:purple;
+}

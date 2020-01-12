@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mens erger je niet</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/layout.css">
+		<script src="javascripts/main.js" ></script>
+	</head>
+	<body onload="load();" >
+		<div>
+			<div id="game">
+				loading
+			</div>
+			
+			<div id="overlay">
+				<div id="flex_container">
+					<div id="spash_screen">
+						<div id="new_game">
+						
+							<button onclick="document.getElementById('new_game').style.display = 'none'; document.getElementById('new_game_settings').style.display = 'block';">Start New Game</button>
+							<!-- this should be loaded after the page has loaded-->
+							
+						</div>
+						<div id="new_game_settings">
+						
+							<button onclick="console.log('create button'); createGame();">Start</button>
+							
+						</div>
+					</div>
+					<div id="active_games">
+						<div id="direct_join">
+						
+							join game<input type="text" /><button onclick="document.getElementById('overlay').style.display = 'none'; alert('not implemented')">GO</button>
+							
+						</div>
+						<div id="game_list">
+							
+							game 1 <button onclick="document.getElementById('overlay').style.display = 'none'">join</button>
+							<br>
+							game 2 <button onclick="document.getElementById('overlay').style.display = 'none'">join</button>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
